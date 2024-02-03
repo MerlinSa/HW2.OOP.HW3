@@ -2,7 +2,8 @@ package main.clients;
 
 import java.time.LocalDate;
 
-public class Cat extends Animal {
+//все наследники(Cat) абс.кл-са обязаны реали-ть все его нереализ-ные методы
+public class Cat extends Animal implements Wakeupable, Goable, Huntable, Eatable, Sleepable {
 
     //todo напомнить в чем разница в double
     Double discount;
@@ -17,6 +18,26 @@ public class Cat extends Animal {
         this.discount = 10D;
     }
 
+    public void wakeup() {
+        System.out.println("Кошка проснулась в ");
+    }
+
+    @Override
+    public void toGo(){
+    }
+
+    @Override
+    public void hunt(){
+    }
+    @Override
+    //все наследники абс.кл-са обязаны реали-ть/переопред. все его нереализ-ные методы
+    public void eat(){
+    }
+
+    @Override
+    public void sleep(){
+    }
+
     public Double getDiscount() {
         return discount;
     }
@@ -25,15 +46,9 @@ public class Cat extends Animal {
         this.discount = discount;
     }
 
-    //todo static относится к классу, метод выполнятеся без экземпляра самим классом
-    // аккуратно поль-ся.(пароли там не хранить)
-    public static void meow(){
-        System.out.println("Мяу!"); //все коты мира мяукнут, метод meow()относится к род.классу, а не экземпляру
-    }
-
     @Override
     public String toString() {
-        return super.toString()+"Discount("+discount+")";
+        return super.toString() + "Discount(" + discount + ")";
     }
 }
 

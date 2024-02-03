@@ -2,8 +2,9 @@ package main.clients;
 
 import java.time.LocalDate;
 
-public class  Animal {
-
+//абс.класс-класс кот-й может иметь, и не иметь 1и более абс.мето-в.
+//экзем-р абс.кл-са нельзя создать ч/з ключ-е слово New. Абс.метод достаточно объявить,реализацию писать не нужно!
+public abstract class  Animal {
     //видно в классе и во всех наследниках
     protected String nickName;
     protected Owner owner;
@@ -17,6 +18,7 @@ public class  Animal {
         this.birthDate = birthDate;
         this.illness = illness;
     }
+
 
     public Animal() {
         this("Кличка", new Owner("Хозяин"), LocalDate.now(), new Illness("болеет"));//соответсвует
@@ -43,51 +45,11 @@ public class  Animal {
         this.illness = illness;
     }
 
-    public void lifeCycle(){
-        wakeUp("12:00");
-        hunt();
-        eat();
-        sleep();
-        toGo();
-        fly();
-        swim();
-    }
-
-    private void wakeUp(){
-        System.out.println("Животное проснулось!");
-    }
-
-    private void wakeUp(String time){
-        System.out.println("Животное " + nickName + " проснулось в " + time);
-    }
 
     public String getType(){
         return getClass().getSimpleName();
     }
-    private void hunt(){
-        System.out.println("Животное " + nickName + " охотится!");
-    }
-    private void eat(){
-        System.out.println("Животное " + nickName + " ест!");
-    }
 
-    private void sleep(){
-        System.out.println("Животное " + nickName + " спит!");
-    }
-
-    public void toGo(){
-        System.out.println("Animal " + nickName + " moves");
-    }
-
-    public void fly(){
-        if (getType().equals("Seagull")) {System.out.println("Chaika flies");}
-       else {System.out.println("Animal can't fly");}
-   }
-
-    public void swim( ){
-        if (getType().equals("Dolphin")) System.out.println("Dolphin swims");
-        else System.out.println("Animal can't swim");
-    }
 
     @Override
     public String toString() {
