@@ -1,11 +1,10 @@
 package main.clients;
-
 import java.time.LocalDate;
 
-//все наследники(Cat) абс.кл-са обязаны реали-ть все его нереализ-ные методы
-public class Cat extends Animal implements Wakeupable, Goable, Huntable, Eatable, Sleepable {
+//все наследники абс.кл-са обязаны реали-ть все его нереализ-ные методы
 
-    //todo напомнить в чем разница в double
+public class Cat extends Animal implements Goable {
+
     Double discount;
 
     public Cat(String nickName, Owner owner, LocalDate birthDate, Illness illness, Double discount) {
@@ -13,30 +12,25 @@ public class Cat extends Animal implements Wakeupable, Goable, Huntable, Eatable
         this.discount = discount;
     }
 
-    public Cat() {
-        super(); //todo тестовый конструктор Animal test
-        this.discount = 10D;
-    }
+//    public Cat() {
+//        //super(); //todo тестовый конструктор Animal test
+//        this.discount = 10D;
+//    }
 
-    public void wakeup() {
-        System.out.println("Кошка проснулась в ");
-    }
+    @Override
+    public void eat() {
+        System.out.println("Кошка ест рыбу");
+    } //все наследники абс.кл-са обязаны реали-ть/переопред. все его нереализ-ные методы
 
     @Override
     public void toGo(){
     }
 
     @Override
-    public void hunt(){
-    }
-    @Override
-    //все наследники абс.кл-са обязаны реали-ть/переопред. все его нереализ-ные методы
-    public void eat(){
+    public double run() {
+        return 48.0; // скорость бега кошки 48км/ч
     }
 
-    @Override
-    public void sleep(){
-    }
 
     public Double getDiscount() {
         return discount;
@@ -51,4 +45,3 @@ public class Cat extends Animal implements Wakeupable, Goable, Huntable, Eatable
         return super.toString() + "Discount(" + discount + ")";
     }
 }
-

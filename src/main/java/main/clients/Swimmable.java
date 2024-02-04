@@ -2,5 +2,9 @@ package main.clients;
 @FunctionalInterface
 public interface Swimmable {
 
-    void swim();
+    double swim();
+
+    default double getSwimSpeed(){
+        return 10;
+    }
 }

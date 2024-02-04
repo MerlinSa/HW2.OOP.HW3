@@ -1,9 +1,9 @@
 package main.clients;
 @FunctionalInterface
 public interface Flyable {
+    double fly();
 
-    void fly();
     default double getFlySpeed(){
-        return 100;
+        return 10;
     }
 }

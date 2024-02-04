@@ -2,21 +2,63 @@ package main.personal;
 
 import java.time.LocalDate;
 
-public class Nurse extends Staff implements Procedureable, Helpable {
-    public Nurse(String firstName, String lastName, LocalDate birthDate, Post post, Shift shift){
-        super();
+public class Nurse {
+    private String fName;
+    private String lName;
+    private LocalDate bd;
+    private String qualification;
+    private int id;
+
+    public Nurse(String fName, String lName, LocalDate bd, String qualification, int id ) {
+        this.fName = fName;
+        this.lName = lName;
+        this.bd = bd;
+        this.qualification = qualification;
+        this.id = id;
 
     }
 
-    public Nurse() {
-        super();
+    public String getfName() {
+        return fName;
     }
+
+    public String getlName() {
+        return lName;
+    }
+
+    public LocalDate getBd() {
+        return bd;
+    }
+
+    public String getQualification() {
+        return qualification;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setQualification(String qualification) {
+        this.qualification = qualification;
+    }
+
+    public void assistDoctor(String doctor){
+        System.out.println(("Nurse:" + getId() + "helps to" + doctor));
+
+    }
+    public void carePatients(String patient){
+        System.out.println("Nurse:" + getId() + "cares" + patient);
+
+    }
+
     @Override
-    public void perform(){
-
+    public String toString() {
+        return String.format("fName = %s, lName = %s, bd = %s, qualification = %s, id = %s",
+                lName, fName, bd, qualification, id);
     }
-    public void help(){
-
-    }
-
 }
+
+
+
+
+
