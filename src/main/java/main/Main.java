@@ -44,6 +44,7 @@ public class Main {
         vetClinic.addPatient(swan);
 
         vetClinic.getPatients();
+
         vetClinic.addFlyingAnimals(swan);
         vetClinic.addGoingAnimals(dog);
         vetClinic.addGoingAnimals(cat);
